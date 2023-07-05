@@ -3,3 +3,53 @@
     bottom: 64px;
     right: 56px;
 }
+
+mat-card-content {
+    padding: 0px 0px;
+}
+
+.user-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid rgba(0,0,0,0.4);
+cursor: pointer;
+        &:first-child {
+            cursor: auto;
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        td {
+            &:first-child {
+                padding-left: 16px
+            }
+        }
+
+        th {
+            &:first-child {
+                padding-left: 16px
+            }
+        }
+
+        &:hover {
+            background-color: rgba(0,0,0,0.04);
+        }
+    }
+
+    td {
+        height: 48px;
+    }
+
+    th {
+        color: rgba(0,0,0,0.4);
+        font-size: 14px;
+    }
+}
