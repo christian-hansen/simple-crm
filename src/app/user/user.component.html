@@ -7,15 +7,10 @@
       <th>E-Mail</th>
       <th>City</th>
     </tr>
-    <tr>
-      <td>Hans Müller</td>
-      <td>hans@mueller.de</td>
-      <td>München</td>
-    </tr>
-    <tr>
-      <td>Hans Müller</td>
-      <td>hans@mueller.de</td>
-      <td>München</td>
+    <tr *ngFor="let user of allUsers">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.city }}</td>
     </tr>
     </table>
     
