@@ -14,6 +14,8 @@ birthDate: Date = new Date();
 firestore: Firestore = inject(Firestore);
 loading: boolean = false;
 
+
+
 constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
   // const user = collection(this.firestore, 'items');
   //   this.item$ = collectionData(itemCollection);

@@ -21,7 +21,7 @@ export class UserComponent implements OnInit {
 
 constructor(public dialog: MatDialog) {
   this.userCollection = collection(this.firestore, 'users');
-  this.users$ = collectionData(this.userCollection);
+  this.users$ = collectionData(this.userCollection, { idField: 'customIdName' });
   
 this.loadUsers();
 
