@@ -30,6 +30,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
+import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialo
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
-    DialogEditUserDetailsComponent
+    DialogEditUserDetailsComponent,
+    CardUsersTotalComponent
   ],
   imports: [
     BrowserModule,

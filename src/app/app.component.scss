@@ -54,3 +54,13 @@ ul {
 .router-container {
     padding: 16px 56px;
 }
+
+.footer-container {
+  position: absolute;
+  bottom: 0;
+  min-height: 56px;
+  width: calc(100% - 32px);
+  padding: 16px 16px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
