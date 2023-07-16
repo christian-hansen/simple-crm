@@ -31,6 +31,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
 import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CardUsersTotalComponent } from './card-users-total/card-users-total.com
     UserDetailComponent,
     DialogEditAddressComponent,
     DialogEditUserDetailsComponent,
-    CardUsersTotalComponent
+    CardUsersTotalComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

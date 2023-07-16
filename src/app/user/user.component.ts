@@ -1,54 +1,27 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { collectionData, Firestore } from '@angular/fire/firestore';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { collection, CollectionReference, DocumentData } from 'firebase/firestore';
-import { Observable } from 'rxjs';
-import { User } from 'src/models/user.class';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
 })
-export class UserComponent implements OnInit {
-  user: User = new User();
-  firestore: Firestore = inject(Firestore);
-  // users$: Observable<any[]>;
-  private userCollection: CollectionReference<DocumentData>;
+export class UserComponent {
   allUsers: any = [];
-  users$: Observable<any>;
 
-constructor(public dialog: MatDialog) {
-  this.userCollection = collection(this.firestore, 'users');
-  this.users$ = collectionData(this.userCollection, { idField: 'customIdName' });
-  
-this.loadUsers();
+  constructor(public dialog: MatDialog, private dataservice: DataService) {
+    this.loadAllProducts();
+  }
 
- 
-
-}
-
-ngOnInit(): void {
-  //
-
-  
-}
-
-
-loadUsers() {
-  
-  this.users$.subscribe((changes) => {
-    console.log('Users$ are:', changes);
-
-    this.allUsers = changes;
-  });
-
-  console.log("AllUsers are:", this.allUsers);
-  
-}
+  loadAllProducts() {
+    this.dataservice.loadUsers().subscribe((users) => {
+      this.allUsers = users;
+    });
+  }
 
   openDialog() {
-    this.dialog.open(DialogAddUserComponent)
+    this.dialog.open(DialogAddUserComponent);
   }
 }

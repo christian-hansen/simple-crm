@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-content>
+      
+      <table class="user-table">
+        <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>State</th>
+        <th>Orders</th>
+        <th>Revenue</th>
+      </tr>
+      <tr *ngFor="let product of allProducts" [routerLink]="'/product/' + product.customIdName" routerLinkActive="router-link-active">
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productPrice }}</td>
+        <td>{{ product.productIsActive }}</td>
+        <td>{{ product.productIsActive }}</td>
+        <td>{{ product.productIsActive }}</td>
+      </tr>
+      </table>
+      
+    </mat-card-content>
+  </mat-card>
+  
+  <!-- <button class="add-user-btn" mat-fab color="primary" matTooltip="Add user" matTooltipPosition="above"
+  matTooltipHideDelay="1000"
+  (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+   -->

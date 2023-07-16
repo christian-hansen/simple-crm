@@ -7,13 +7,6 @@ export class User {
     zipCode: number;
     city: string;
 
-//     constructor (obj?:any) {
-//         if(obj) {
-// this.firstName = obj.firstName;
-// } else {
-//     this.firstName = "";
-// }
-//     }
 
 constructor (obj?:any) {
 this.firstName = obj ? obj.firstName : "";
