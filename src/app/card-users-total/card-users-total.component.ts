@@ -14,19 +14,16 @@ export class CardUsersTotalComponent {
   constructor(public dataservice: DataService) {
     this.users = this.dataservice.loadUsers().subscribe((users) => {
       this.users = users;
-      console.log(this.users);
+
 
       this.totalUsers = users.length;
 
       users.forEach((userData: any) => {
         let userObj: any = {};
         userObj['id'] = userData['customIdName'];
-        userObj['firstName'] = userData['firstName'];
-        userObj['lastName'] = userData['lastName'];
         this.allUsers.push(userObj);
       });
 
-      console.log(this.allUsers);
     });
   }
 }

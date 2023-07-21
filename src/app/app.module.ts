@@ -32,6 +32,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
 import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
 import { ProductsComponent } from './products/products.component';
+import { CardUsersLastMonthComponent } from './card-users-last-month/card-users-last-month.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProductsComponent } from './products/products.component';
     UserDetailComponent,
     DialogEditUserDetailsComponent,
     CardUsersTotalComponent,
-    ProductsComponent
+    ProductsComponent,
+    CardUsersLastMonthComponent
   ],
   imports: [
     BrowserModule,
