@@ -6,11 +6,13 @@
       <th>Name</th>
       <th>E-Mail</th>
       <th>City</th>
+      <th>Create Date</th>
     </tr>
     <tr *ngFor="let user of allUsers" [routerLink]="'/user/' + user.customIdName" routerLinkActive="router-link-active">
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.city }}</td>
+      <td>{{user.createDate | date:'longDate'}}</td>
     </tr>
     </table>
     

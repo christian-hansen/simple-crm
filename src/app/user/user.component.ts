@@ -12,10 +12,10 @@ export class UserComponent {
   allUsers: any = [];
 
   constructor(public dialog: MatDialog, private dataservice: DataService) {
-    this.loadAllProducts();
+    this.loadAllUsers();
   }
 
-  loadAllProducts() {
+  loadAllUsers() {
     this.dataservice.loadUsers().subscribe((users) => {
       this.allUsers = users;
     });

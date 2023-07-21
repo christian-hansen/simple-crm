@@ -11,6 +11,7 @@ import { User } from 'src/models/user.class';
 export class DialogAddUserComponent {
 user: User = new User();
 birthDate: Date = new Date();
+createDate: Date = new Date();
 firestore: Firestore = inject(Firestore);
 loading: boolean = false;
 
@@ -24,7 +25,8 @@ constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
 
 async saveUser() {
-  this.user.birthDate = this.birthDate.getTime();
+  this.user.birthDate = this.birthDate.getTime(); //TODO needs to be birthdate and not current time
+  this.user.createDate = this.createDate.getTime();
   this.loading = true;
  
   const usersCollection = collection(this.firestore, 'users');

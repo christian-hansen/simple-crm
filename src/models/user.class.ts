@@ -6,6 +6,7 @@ export class User {
     street: string;
     zipCode: number;
     city: string;
+    createDate: number;
 
 
 constructor (obj?:any) {
@@ -16,6 +17,7 @@ this.birthDate = obj ? obj.birthDate : "";
 this.street = obj ? obj.street : "";
 this.zipCode = obj ? obj.zipCode : "";
 this.city = obj ? obj.city : "";
+this.createDate = obj ? obj.createDate : "";
 }
 
 
@@ -28,6 +30,7 @@ public toJSON() {
         street: this.street,
         zipCode: this.zipCode,
         city: this.city,
+        createDate: this.createDate
     };
   }
 
