@@ -5,7 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 import { doc, collection, CollectionReference, DocumentData } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { User } from 'src/models/user.class';
-import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserDetailsComponent } from '../dialog-edit-user-details/dialog-edit-user-details.component';
 
 @Component({
@@ -35,8 +34,8 @@ export class UserDetailComponent {
   getUser() {
     const usersDocRef = doc(this.userCollection, this.userId);
     docData(usersDocRef).subscribe((user: any) => {
+      user.birthDate = (user.birthDate)
 this.user = new User(user);
-
 console.log("Retrieved user", this.user);
 
     })
@@ -49,7 +48,7 @@ console.log("Retrieved user", this.user);
   }
 
   editAddress() {
-    const dialog = this.dialog.open(DialogEditAddressComponent);
+    const dialog = this.dialog.open(DialogEditUserDetailsComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
   }

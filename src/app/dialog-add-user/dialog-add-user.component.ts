@@ -1,7 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { Firestore, collection, setDoc, doc} from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
+import { countries } from 'src/models/country-data-store';
 import { User } from 'src/models/user.class';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -14,7 +16,7 @@ birthDate: Date = new Date();
 createDate: Date = new Date();
 firestore: Firestore = inject(Firestore);
 loading: boolean = false;
-
+public countries:any = countries;
 
 
 constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
@@ -25,7 +27,7 @@ constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
 
 async saveUser() {
-  this.user.birthDate = this.birthDate.getTime(); //TODO needs to be birthdate and not current time
+  this.user.birthDate = this.birthDate.getTime();
   this.user.createDate = this.createDate.getTime();
   this.loading = true;
  
@@ -38,4 +40,9 @@ async saveUser() {
     this.loading = false;
     this.dialogRef.close();
 }
+
+onDateChange(event: any) {
+  this.birthDate = new Date(event);
+}
+
 }

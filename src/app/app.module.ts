@@ -17,6 +17,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSelectModule} from '@angular/material/select';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
@@ -28,7 +29,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
 import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
 import { ProductsComponent } from './products/products.component';
@@ -40,7 +40,6 @@ import { ProductsComponent } from './products/products.component';
     UserComponent,
     DialogAddUserComponent,
     UserDetailComponent,
-    DialogEditAddressComponent,
     DialogEditUserDetailsComponent,
     CardUsersTotalComponent,
     ProductsComponent
@@ -62,6 +61,7 @@ import { ProductsComponent } from './products/products.component';
     MatProgressBarModule,
     MatCardModule,
     MatMenuModule,
+    MatSelectModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
