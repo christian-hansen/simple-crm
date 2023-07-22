@@ -25,13 +25,10 @@ export class DialogEditUserDetailsComponent implements OnInit {
 
   constructor(private dialog: MatDialogRef<DialogEditUserDetailsComponent>) {
     this.userCollection = collection(this.firestore, 'users');
-    
   }
   
   ngOnInit() {
-
     this.birthDate = new Date(this.user.birthDate);
-    
 }
 
   async saveUser() {

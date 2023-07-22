@@ -12,16 +12,13 @@ export class ProductsComponent {
   allProducts: any = [];
 
   constructor(public dialog: MatDialog, private dataservice: DataService) {
-    this.loadAllUsers();
+    this.loadAllProducts();
   }
 
-  loadAllUsers() {
+  loadAllProducts() {
     this.dataservice.loadProducts().subscribe((products) => {
       this.allProducts = products;
     });
   }
 
-  openDialog() {
-    // this.dialog.open(DialogAddUserComponent)
-  }
 }

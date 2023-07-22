@@ -1,17 +1,21 @@
-<mat-card>
+<app-dashboard-user-data></app-dashboard-user-data>
+
+<mat-card class="mt-32">
   <mat-card-content>
     
     <table class="user-table">
       <tr>
       <th>Name</th>
       <th>E-Mail</th>
-      <th>City</th>
+      <th>Birth date</th>
+      <th>Country</th>
       <th>Create Date</th>
     </tr>
     <tr *ngFor="let user of allUsers" [routerLink]="'/user/' + user.customIdName" routerLinkActive="router-link-active">
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.email }}</td>
-      <td>{{ user.city }}</td>
+      <td>{{ user.birthDate | date:'shortDate'}}</td>
+      <td>{{ user.country }}</td>
       <td>{{user.createDate | date:'longDate'}}</td>
     </tr>
     </table>
@@ -22,5 +26,5 @@
 <button class="add-user-btn" mat-fab color="primary" matTooltip="Add user" matTooltipPosition="above"
 matTooltipHideDelay="1000"
 (click)="openDialog()">
-    <mat-icon>add</mat-icon>
+    <mat-icon>person_add</mat-icon>
   </button>

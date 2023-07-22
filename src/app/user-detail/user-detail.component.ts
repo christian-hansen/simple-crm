@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { doc, collection, CollectionReference, DocumentData } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { User } from 'src/models/user.class';
+import { DialogDeleteUserComponent } from '../dialog-delete-user/dialog-delete-user.component';
 import { DialogEditUserDetailsComponent } from '../dialog-edit-user-details/dialog-edit-user-details.component';
 
 @Component({
@@ -47,8 +48,8 @@ console.log("Retrieved user", this.user);
     dialog.componentInstance.userId = this.userId;
   }
 
-  editAddress() {
-    const dialog = this.dialog.open(DialogEditUserDetailsComponent);
+  deleteUser() {
+    const dialog = this.dialog.open(DialogDeleteUserComponent);
     dialog.componentInstance.user = new User(this.user.toJSON());
     dialog.componentInstance.userId = this.userId;
   }

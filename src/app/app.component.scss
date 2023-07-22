@@ -7,7 +7,9 @@
 }
 
 .sidenav {
-  width: 300px;
+  width: 250px;
+  background-color: rgb(44, 44, 56);
+  color: white;
 }
 
 .logo-container {
@@ -15,8 +17,19 @@
   padding: 0px 16px;
   min-height: 56px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   cursor: pointer;
+
+  img {
+  height: 24px;
+  }
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
 }
 
 mat-toolbar,
@@ -25,10 +38,16 @@ mat-toolbar-row {
   height: 56px;
 }
 
+mat-toolbar {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
 ul {
   list-style: none;
   padding-left: 0px;
   margin: 0;
+  margin-top: 32px;
 
   li {
     display: flex;
@@ -51,16 +70,18 @@ ul {
   }
 }
 
-.router-container {
-    padding: 16px 56px;
-}
+
 
 .footer-container {
   position: absolute;
-  bottom: 0;
-  min-height: 56px;
-  width: calc(100% - 32px);
-  padding: 16px 16px;
+  bottom: 0px;
+  width: calc(100% - 16px);
+  padding: 0px 16px 16px 0px;
 
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.logo-bottom {
+  position: relative;
+  bottom: 0;
 }

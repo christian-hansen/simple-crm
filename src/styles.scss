@@ -10,6 +10,10 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+h1 {
+  margin: 0;
+}
+
 .text-2x {
   font-size: 2rem;
 }
@@ -67,9 +71,25 @@ body {
   text-align: center;
 }
 
+.router-container {
+  padding: 16px 56px;
+}
+
 app-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center ;
+  width: 100%;
+  gap: 32px;
+}
+
+app-dashboard-user-data {
   display: flex;
   justify-content: center ;
   width: 100%;
   gap: 32px;
+}
+
+app-user {
+  width: 100%;
 }

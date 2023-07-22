@@ -34,6 +34,10 @@ import { CardUsersTotalComponent } from './card-users-total/card-users-total.com
 import { ProductsComponent } from './products/products.component';
 import { CardUsersLastMonthComponent } from './card-users-last-month/card-users-last-month.component';
 import { CardUsersLastWeekComponent } from './card-users-last-week/card-users-last-week.component';
+import { DashboardUserDataComponent } from './dashboard-user-data/dashboard-user-data.component';
+import { CardUsersTodayComponent } from './card-users-today/card-users-today.component';
+import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { CardUsersLastWeekComponent } from './card-users-last-week/card-users-la
     CardUsersTotalComponent,
     ProductsComponent,
     CardUsersLastMonthComponent,
-    CardUsersLastWeekComponent
+    CardUsersLastWeekComponent,
+    DashboardUserDataComponent,
+    CardUsersTodayComponent,
+    DialogDeleteUserComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

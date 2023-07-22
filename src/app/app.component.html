@@ -1,17 +1,36 @@
 <mat-drawer-container class="mat-drawer-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
-    <div class="logo-container" routerLink="" routerLinkActive="router-link-active">Simple CRM</div>
+    <div class="logo-container" routerLink="" routerLinkActive="router-link-active"><img src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon">account_circle</mat-icon></div>
+    <div class="flex-center flex-col gap2 mt-32">
+      <img class="profile-image" src="/assets/img/profile1x.png" alt="">
+      <div class="flex-col gap">
+        <div><strong>Christian Hansen</strong></div>
+        <div>christian@example.com</div>
+      </div>
+    </div>
+    <div>
+     
     <ul>
-      <li routerLink="/dashboard" routerLinkActive="router-link-active" ><mat-icon>fact_check</mat-icon>Dashboard</li>
-      <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>perm_identity</mat-icon>User</li>
-      <li routerLink="/products" routerLinkActive="router-link-active" ><mat-icon>local_shipping</mat-icon>Products</li>
-      <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>perm_identity</mat-icon>User</li>
+      <li routerLink="/dashboard" routerLinkActive="router-link-active" ><mat-icon>view_list</mat-icon>Dashboard</li>
+      <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>people</mat-icon>User</li>
+      <li routerLink="/products" routerLinkActive="router-link-active" ><mat-icon>home_repair_service</mat-icon>Products</li>
+      <li routerLink="/products" routerLinkActive="router-link-active" ><mat-icon>local_shipping</mat-icon>Orders TBD</li>
     </ul>
-    <div class="footer-container">Footer</div>
+
+  </div>
+
+    <div class="footer-container">
+      <ul class="pb-16">
+        <li routerLink="/dashboard" routerLinkActive="router-link-active" ><mat-icon>info</mat-icon>Legal TBD</li>
+        <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>help</mat-icon>Help TBD</li>
+      </ul>
+      <div class="flex-center logo-bottom"><img class="profile-image" src="/assets/img/logo.png" alt=""></div>
+    </div>
+    
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <mat-toolbar-row>
         <mat-icon class="menu-icon" (click)="drawer.toggle()">menu</mat-icon>
       </mat-toolbar-row>

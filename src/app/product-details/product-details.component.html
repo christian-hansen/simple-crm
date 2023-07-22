@@ -1,0 +1,47 @@
+<mat-card >
+    <mat-card-content class="product-detail-header">
+      <!-- <button class="iconmenu-top-corner" mat-icon-button [matMenuTriggerFor]="userMenu" >
+          <mat-icon>more_vert</mat-icon>
+        </button> -->
+  
+        <mat-menu #userMenu="matMenu">
+          <!-- <button mat-menu-item (click)="editUserDetails()">Edit User Details</button>
+          <button mat-menu-item (click)="deleteUser()">Delete User</button> -->
+        </mat-menu>
+          
+      <img src="/assets/img/profile.png">
+  
+      <div class="product-details">
+          <h2> {{ product.productName }}</h2>
+          {{ product.productPrice }} <br>
+          <div *ngIf="product.productIsActive">Product is active</div> 
+          <div *ngIf="!product.productIsActive">Product is inactive</div> 
+      </div>
+  </mat-card-content>
+  </mat-card>
+  
+  <mat-card class="mt-32">
+      <mat-card-header>
+
+          <mat-card-title>Orders (TBD)</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          
+          <table class="order-table">
+            <tr>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Customer</th>
+                <th>Order amount</th>
+                <th>Order value</th>
+            </tr>
+            <tr>
+                <td>1/1/2010</td>
+                <td>Product 1</td>
+                <td>Giancarlo Stanton (giancarlo@yankees.com)</td>
+                <td>2</td>
+                <td>{{ product.productPrice * 2 }} EUR</td>
+            </tr>
+          </table>
+      </mat-card-content>
+  </mat-card>
