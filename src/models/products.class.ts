@@ -3,15 +3,15 @@ export class Product {
     productIsActive: boolean;
     productPrice: number;
     productImage: string;
-    productOrders: any;
+    productOrders: Array<any>;
 
 
 constructor (obj?:any) {
 this.productName = obj ? obj.productName : "";
-this.productIsActive = obj ? obj.productIsActive : "";
-this.productPrice = obj ? obj.productPrice : "";
+this.productIsActive = obj ? obj.productIsActive : false;
+this.productPrice = obj ? obj.productPrice : 0;
 this.productImage = obj ? obj.productImage : "";
-this.productOrders = obj ? obj.productOrders : "";
+this.productOrders = obj && obj.productOrders ? obj.productOrders : []; 
 }
 
 

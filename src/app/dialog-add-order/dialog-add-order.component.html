@@ -1,0 +1,31 @@
+<mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+<h1 mat-dialog-title>Add Order</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field appearance="outline" class="mr-16">
+            <mat-label>Select Product</mat-label>
+            <mat-select [(ngModel)]="productId" name="value">
+              <mat-option *ngFor="let product of allProducts" value="{{product.customIdName}}">{{product.productName}}</mat-option>
+            </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Select Amount</mat-label>
+      <input type="number" [disabled]="loading" [(ngModel)]="order.amount" matInput placeholder="" value="0"/>
+      <!-- <mat-hint>Please enter last name</mat-hint> -->
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Customer</mat-label>
+        <mat-select [(ngModel)]="customerId" name="value">
+          <mat-option *ngFor="let customer of allUsers" value="{{customer.customIdName}}">{{customer.firstName}} {{customer.lastName }} ({{customer.email}})</mat-option>
+        </mat-select>
+    </mat-form-field>
+  </div>
+
+</div>
+<div mat-dialog-actions>
+  <button [disabled]="loading" mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="loading" mat-button cdkFocusInitial (click)="saveOrder()">Save</button>
+</div>

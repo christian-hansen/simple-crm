@@ -38,6 +38,9 @@ import { DashboardUserDataComponent } from './dashboard-user-data/dashboard-user
 import { CardUsersTodayComponent } from './card-users-today/card-users-today.component';
 import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     DashboardUserDataComponent,
     CardUsersTodayComponent,
     DialogDeleteUserComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    OrdersComponent,
+    OrderDetailComponent,
+    DialogAddOrderComponent
   ],
   imports: [
     BrowserModule,
