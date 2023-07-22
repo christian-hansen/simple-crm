@@ -33,6 +33,7 @@ import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialo
 import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
 import { ProductsComponent } from './products/products.component';
 import { CardUsersLastMonthComponent } from './card-users-last-month/card-users-last-month.component';
+import { CardUsersLastWeekComponent } from './card-users-last-week/card-users-last-week.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CardUsersLastMonthComponent } from './card-users-last-month/card-users-
     DialogEditUserDetailsComponent,
     CardUsersTotalComponent,
     ProductsComponent,
-    CardUsersLastMonthComponent
+    CardUsersLastMonthComponent,
+    CardUsersLastWeekComponent
   ],
   imports: [
     BrowserModule,
