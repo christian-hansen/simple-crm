@@ -41,6 +41,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
+import { TableProductsComponent } from './table-products/table-products.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -60,7 +64,8 @@ import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.com
     ProductDetailsComponent,
     OrdersComponent,
     OrderDetailComponent,
-    DialogAddOrderComponent
+    DialogAddOrderComponent,
+    TableProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +88,10 @@ import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.com
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
