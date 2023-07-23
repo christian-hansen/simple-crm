@@ -2,27 +2,27 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { TableProductsDataSource, TableProductsItem } from './table-products-datasource';
+import { TableOrdersDataSource, TableOrdersItem } from './table-orders-datasource';
 import { DataService } from '../services/data.service';
 import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-table-products',
-  templateUrl: './table-products.component.html',
-  styleUrls: ['./table-products.component.scss']
+  selector: 'app-table-orders',
+  templateUrl: './table-orders.component.html',
+  styleUrls: ['./table-orders.component.scss']
 })
-export class TableProductsComponent implements AfterViewInit {
+export class TableOrdersComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<TableProductsItem>;
-  dataSource: TableProductsDataSource;
+  @ViewChild(MatTable) table!: MatTable<TableOrdersItem>;
+  dataSource: TableOrdersDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['productName', 'productPrice', 'orders', 'revenue'];
+  displayedColumns = ['createDate', 'customerId', 'productId', 'amount', 'productPrice', 'revenue'];
 
-  constructor(private dataservice: DataService, public dialog: MatDialog) {
-    this.dataSource = new TableProductsDataSource(this.dataservice);
+  constructor(private dataService: DataService, public dialog: MatDialog) {
+    this.dataSource = new TableOrdersDataSource(this.dataService);
   }
 
   ngAfterViewInit(): void {
@@ -34,5 +34,4 @@ export class TableProductsComponent implements AfterViewInit {
   openDialog() {
     this.dialog.open(DialogAddOrderComponent);
   }
-
 }

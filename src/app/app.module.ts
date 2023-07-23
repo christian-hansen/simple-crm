@@ -45,6 +45,7 @@ import { TableProductsComponent } from './table-products/table-products.componen
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { TableOrdersComponent } from './table-orders/table-orders.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { MatSortModule } from '@angular/material/sort';
     OrdersComponent,
     OrderDetailComponent,
     DialogAddOrderComponent,
-    TableProductsComponent
+    TableProductsComponent,
+    TableOrdersComponent
   ],
   imports: [
     BrowserModule,

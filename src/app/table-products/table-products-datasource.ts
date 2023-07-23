@@ -15,10 +15,10 @@ export interface TableProductsItem {
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: TableProductsItem[] = [
+// const EXAMPLE_DATA: TableProductsItem[] = [
   // {productName: "Test1", productIsActive: true, productPrice: 834, orders:  ["abs", "isks"]},
   // {productName: "Test2", productIsActive: true, productPrice: 212, orders:  ["sdda", "dasda"]},
-];
+// ];
 
 /**
  * Data source for the TableProducts view. This class should
