@@ -16,7 +16,7 @@ export class DialogAddOrderComponent {
   customerId: string = "";
   productId: string = "";
 year2020: number = 1577833200000;
-minDate: Date = new Date(this.year2020);
+minDate: Date = new Date(this.year2020); //TODO potentially change to earliest product release date
 maxDate: Date = new Date();
   createDate: Date = new Date();
   firestore: Firestore = inject(Firestore);
@@ -33,14 +33,12 @@ maxDate: Date = new Date();
   loadAllUsers() {
     this.dataservice.loadUsers().subscribe((users) => {
       this.allUsers = users;
-      console.log("Retrieved users", this.allUsers)
     });
   }
 
   loadAllProducts() {
     this.dataservice.loadProducts().subscribe((products) => {
       this.allProducts = products;
-      console.log("Retrieved products", this.allProducts)
     });
   }
   
@@ -56,7 +54,6 @@ maxDate: Date = new Date();
       
       await setDoc(ordersDocRef, orderToJson);
       ;
-      console.log("OrdersDocRef", ordersDocRef.id, "orderToJson", orderToJson);
       
 
 //Save to users's order array

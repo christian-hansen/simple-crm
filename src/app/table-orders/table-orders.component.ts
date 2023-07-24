@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { TableOrdersDataSource, TableOrdersItem } from './table-orders-datasource';
 import { DataService } from '../services/data.service';
 import { DialogAddOrderComponent } from '../dialog-add-order/dialog-add-order.component';
@@ -27,6 +27,10 @@ export class TableOrdersComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    const sortState: Sort = {active: 'createDate', direction: 'desc'};
+    this.sort.active = sortState.active;
+    this.sort.direction = sortState.direction;
+    this.sort.sortChange.emit(sortState);
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
