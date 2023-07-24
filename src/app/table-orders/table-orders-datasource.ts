@@ -12,6 +12,9 @@ export interface TableOrdersItem {
   revenue: number;
   createDate: number;
   customerId: string;
+  customerFirstName: string,
+  customerLastName: string,
+  customerEmail: string,
   productId: string;
   productPrice: number;
 }
@@ -50,13 +53,16 @@ export class TableOrdersDataSource extends DataSource<TableOrdersItem> {
   //TODO turn customer ID into First Name + Last Name + eMail
   private loadData(): void {
     this.dataservice.loadOrders().subscribe(orders => {
-      const items = orders.map((order: Order) => ({
+      const items = orders.map((order: any) => ({
         amount: order.amount,
-        revenue: (order.amount * this.productByPriceAndName(order.productId)).toFixed(2),
+        revenue: (order.amount * this.getProductPriceById(order.productId)).toFixed(2),
         createDate: order.createDate,
-        customerId: this.customerByIdAndName(order.customerId),
-        productId: this.productByIdAndName(order.productId),
-        productPrice: this.productByPriceAndName(order.productId)
+        customerId: order.customerId,
+        customerFirstName: this.getCustomerDetailsById(order.customerId, "firstName"),
+        customerLastName: this.getCustomerDetailsById(order.customerId, "lastName"),
+        customerEmail: this.getCustomerDetailsById(order.customerId, "email"),
+        productId: this.getProductNameById(order.productId),
+        productPrice: this.getProductPriceById(order.productId)
       }));
 console.log(items);
 
@@ -78,7 +84,6 @@ console.log(items);
     });
   }
 
-        //*** */
         getUserById(customIdName: string) {
           return this.allUsers.find((user: any) => user.customIdName === customIdName);
         }
@@ -87,7 +92,7 @@ console.log(items);
           return this.allProducts.find((product: any) => product.customIdName === customIdName);
         }
 
-        customerByIdAndName(customIdName: string) {
+        getCustomerNamesEmailById(customIdName: string) {
           const customer = this.allUsers.find((customer: any) => customer.customIdName === customIdName);
 
           if (customer) {
@@ -95,11 +100,32 @@ console.log(items);
             return customerName
             ;
           } else {
-            return null; // or throw an error, depending on what you need.
+            return null;
           }
         }
 
-        productByIdAndName(customIdName: string) {
+        getCustomerDetailsById(customIdName: string, detail: string) {
+          const customer = this.allUsers.find((customer: any) => customer.customIdName === customIdName);
+          const customerDetail = detail;
+
+          if (customer && customerDetail === "firstName") {
+            let firstName = customer.firstName;
+            return firstName;
+            ;
+          } else if (customer && customerDetail === "lastName") {
+            let lastName = customer.lastName;
+            return lastName;
+            ;
+          } else if (customer && customerDetail === "email") {
+            let email = customer.email;
+            return email;
+            ;}
+          else {
+            return null;
+          }
+        }
+
+        getProductNameById(customIdName: string) {
           const product = this.allProducts.find((product: any) => product.customIdName === customIdName);
 
           if (product) {
@@ -107,11 +133,11 @@ console.log(items);
             return productName
             ;
           } else {
-            return null; // or throw an error, depending on what you need.
+            return null;
           }
         }
 
-        productByPriceAndName(customIdName: string) {
+        getProductPriceById(customIdName: string) {
           const product = this.allProducts.find((product: any) => product.customIdName === customIdName);
 
           if (product) {
@@ -119,10 +145,9 @@ console.log(items);
             return productPrice
             ;
           } else {
-            return null; // or throw an error, depending on what you need.
+            return null;
           }
         }
-        //**** */
 
   /**
    * Connect this data source to the table. The table will only update when
@@ -176,7 +201,7 @@ console.log(items);
         case 'createDate': return compare(+a.createDate, +b.createDate, isAsc);
         case 'amount': return compare(+a.amount, +b.amount, isAsc);
         case 'revenue': return compare(+a.revenue, +b.revenue, isAsc);
-        case 'customerId': return compare(a.customerId, b.customerId, isAsc);
+        case 'customerId': return compare(a.customerLastName, b.customerLastName, isAsc);
         case 'productId': return compare(a.productId, b.productId, isAsc);
         case 'productPrice': return compare(+a.productId, +b.productId, isAsc);
         default: return 0;

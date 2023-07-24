@@ -21,13 +21,13 @@
 
 <mat-card class="mt-32">
     <mat-card-header>
-        <button class="iconmenu-top-corner" mat-icon-button [matMenuTriggerFor]="userMenu">
+        <!-- <button class="iconmenu-top-corner" mat-icon-button [matMenuTriggerFor]="userMenu">
             <mat-icon>more_vert</mat-icon>
-          </button>
-
+          </button> -->
+<!-- 
           <mat-menu #addressMenu="matMenu">
             <button mat-menu-item (click)="editUserDetails()">Edit Address</button>
-          </mat-menu>
+          </mat-menu> -->
         <mat-card-title>Address</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -35,4 +35,13 @@
         {{ user.zipCode }}  {{ user.city }} <br>
         {{ user.country }}
     </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+  <mat-card-header>
+      <mat-card-title>Orders</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      {{ user.orders }}
+  </mat-card-content>
 </mat-card>

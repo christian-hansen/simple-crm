@@ -19,7 +19,7 @@ export class TableProductsComponent implements AfterViewInit {
   dataSource: TableProductsDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['productName', 'productPrice', 'orders', 'revenue'];
+  displayedColumns = ['productName', 'productIsActive', 'productPrice', 'orders', 'revenue'];
 
   constructor(private dataservice: DataService, public dialog: MatDialog) {
     this.dataSource = new TableProductsDataSource(this.dataservice);

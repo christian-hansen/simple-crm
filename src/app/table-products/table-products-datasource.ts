@@ -9,7 +9,7 @@ import { Product } from 'src/models/products.class';
 // TODO: Replace this with your own data model type
 export interface TableProductsItem {
   productName: string;
-  productIsActive: boolean;
+  productIsActive: string;
   productPrice: number;
   orders: Array<any>;
 }
@@ -45,7 +45,7 @@ export class TableProductsDataSource extends DataSource<TableProductsItem> {
     this.dataService.loadProducts().subscribe(products => {
       const items = products.map((product: Product) => ({
         productName: product.productName,
-        productIsActive: product.productIsActive,
+        productIsActive: this.getProductState(product.productIsActive),
         productPrice: (product.productPrice).toFixed(2),
         orders: product.orders,
       }));
@@ -54,6 +54,13 @@ export class TableProductsDataSource extends DataSource<TableProductsItem> {
     });
   }
 
+  getProductState(productIsActive: boolean) {
+if (productIsActive) {
+  return "Active";
+} else {
+  return "Inactive"
+}
+  }
   /**
    * Connect this data source to the table. The table will only update when
    * the returned stream emits new items.
@@ -106,6 +113,7 @@ export class TableProductsDataSource extends DataSource<TableProductsItem> {
         case 'productName': return compare(a.productName, b.productName, isAsc);
         case 'productPrice': return compare(+a.productPrice, +b.productPrice, isAsc);
         case 'orders': return compare(a.orders.length, b.orders.length, isAsc);
+        case 'productIsActive': return compare(a.productIsActive, b.productIsActive, isAsc);
         case 'revenue': return compare((a.orders.length * a.productPrice), (b.orders.length * b.productPrice), isAsc);
         default: return 0;
       }

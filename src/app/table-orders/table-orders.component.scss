@@ -1,5 +1,14 @@
 .full-width-table {
   width: 100%;
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: rgb(0, 0, 123);
+    }
+  }
 }
 
 .add-user-btn {

@@ -6,7 +6,15 @@
       <td mat-cell *matCellDef="let row">{{row.productName}}</td>
     </ng-container>
 
-    <!-- Price Column -->
+
+
+        <!-- State Column -->
+        <ng-container matColumnDef="productIsActive">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Product State</th>
+          <td mat-cell *matCellDef="let row">{{row.productIsActive}}</td>
+        </ng-container>
+
+            <!-- Price Column -->
     <ng-container matColumnDef="productPrice">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Net Price</th>
       <td mat-cell *matCellDef="let row">{{row.productPrice}} €</td>
@@ -18,7 +26,7 @@
       <td mat-cell *matCellDef="let row">{{row.orders.length}}</td>
     </ng-container>
 
-    <!-- Orders Column -->
+    <!-- Revenue Column -->
         <ng-container matColumnDef="revenue">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Net Revenue</th>
           <td mat-cell *matCellDef="let row">{{row.orders.length * row.productPrice}} €</td>
