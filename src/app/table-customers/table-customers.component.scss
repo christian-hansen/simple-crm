@@ -1,3 +1,20 @@
 .full-width-table {
-  width: 100%;
+  tr {
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: auto;
+  }
+}
+
+.transparent-header-hover {
+  &:hover {
+    background-color: transparent !important;
+  }
 }

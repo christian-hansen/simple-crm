@@ -17,6 +17,7 @@ export interface TableCustomersItem {
   city: string;
   country: string;
   createDate: number;
+  customIdName: string;
 }
 
 // TODO: replace this with real data from your application
@@ -46,7 +47,8 @@ export class TableCustomersDataSource extends DataSource<TableCustomersItem> {
 
   private loadData(): void {
     this.dataservice.loadUsers().subscribe(users => {
-      const items = users.map((user: User) => ({
+      
+      const items = users.map((user: any) => ({
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
@@ -56,6 +58,7 @@ export class TableCustomersDataSource extends DataSource<TableCustomersItem> {
         city: user.city,
         country: user.country,
         createDate: user.createDate,
+        customIdName: user.customIdName,
       }));
 
       this.dataSubject.next(items);

@@ -14,8 +14,7 @@ import { UserComponent } from './user/user.component';
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'user', component: TableCustomersComponent },
-  { path: 'user-old', component: UserComponent },
+  { path: 'user', component: UserComponent },
   { path: 'user/:id', component: UserDetailComponent },
   { path: 'products', component: TableProductsComponent },
   { path: 'orders-old', component: OrdersComponent },
