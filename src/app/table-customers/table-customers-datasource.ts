@@ -20,25 +20,18 @@ export interface TableCustomersItem {
   customIdName: string;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: TableCustomersItem[] = [
-];
-
-/**
- * Data source for the TableCustomers view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
 export class TableCustomersDataSource extends DataSource<TableCustomersItem> {
   private dataSubject: BehaviorSubject<TableCustomersItem[]> = new BehaviorSubject<TableCustomersItem[]>([]);
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
+  private originalData: TableCustomersItem[] = []; // Add this line
+
+
 
   constructor(private dataservice: DataService) {
     super();
     
     this.loadData();
-
   }
 
   get data(): TableCustomersItem[] {
@@ -62,8 +55,26 @@ export class TableCustomersDataSource extends DataSource<TableCustomersItem> {
       }));
 
       this.dataSubject.next(items);
+      this.originalData = [...items];
     });
   }
+
+  applyFilter(filterValue: string) {
+    this.dataSubject.next(
+        this.originalData.filter((item: TableCustomersItem) => {
+            // Combine the values of the properties you want to include in the filter
+            const concatenatedValues = 
+                item.firstName + ' ' +
+                item.lastName + ' ' +
+                item.email + ' ' +
+                item.birthDate + ' ' +
+                item.country + ' ' ;
+            
+            // Convert them to lower case and check if they include the filter value
+            return concatenatedValues.toLowerCase().includes(filterValue.toLowerCase());
+        })
+    );
+}
 
   /**
    * Connect this data source to the table. The table will only update when

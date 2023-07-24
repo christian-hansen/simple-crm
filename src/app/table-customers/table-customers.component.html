@@ -1,4 +1,8 @@
 <div class="mat-elevation-z8 mt-32">
+  <mat-form-field class="search">
+  <mat-label>Filter</mat-label>
+  <input matInput placeholder="Search columns" #search >
+</mat-form-field>
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- First Name Column -->
     <ng-container matColumnDef="firstName">
