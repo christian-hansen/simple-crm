@@ -12,7 +12,6 @@
     <mat-form-field appearance="outline">
       <mat-label>Select Amount</mat-label>
       <input type="number" [disabled]="loading" [(ngModel)]="order.amount" matInput placeholder="" value="0"/>
-      <!-- <mat-hint>Please enter last name</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
@@ -21,6 +20,15 @@
         <mat-select [(ngModel)]="customerId" name="value">
           <mat-option *ngFor="let customer of allUsers" value="{{customer.customIdName}}">{{customer.firstName}} {{customer.lastName }} ({{customer.email}})</mat-option>
         </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Order Date</mat-label>
+      <input [disabled]="loading" [(ngModel)]="order.createDate" (ngModelChange)="onDateChange($event)" matInput [matDatepicker]="picker1" [min]="minDate" [max]="maxDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
     </mat-form-field>
   </div>
 

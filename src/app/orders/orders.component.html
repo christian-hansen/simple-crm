@@ -1,47 +1,6 @@
 <!-- <app-dashboard-user-data></app-dashboard-user-data> -->
 
-<mat-card class="mt-32">
-  <mat-card-content>
-    
-    <table class="user-table">
-      <tr>
-      <th>Order Date</th>
-      <th>Customer</th>
-      <th>Product</th>
-      <th>Amount</th>
-      <th>Product price</th>
-      <th>Order net value</th>
-
-    </tr>
-    <tr *ngFor="let order of allOrders">
-      <td>{{ order.createDate | date:'longDate' }}</td>
-      <td>
-        <div *ngIf="getUserById(order.customerId) as user">
-          {{ user.firstName }} {{ user.lastName }} ({{ user.email }})
-        </div>
-      </td>
-      <td>
-        <div *ngIf="getProductById(order.productId) as product">
-          {{ product.productName }}
-        </div>
-      </td>
-      <td>{{ order.amount}}</td>
-      <td>
-        <div *ngIf="getProductById(order.productId) as product">
-        {{ product.productPrice.toFixed(2) }}
-      </div>
-    </td>
-    <td>
-      <div *ngIf="getProductById(order.productId) as product">
-      {{ (order.amount * product.productPrice).toFixed(2) }} EUR
-    </div>
-  </td>
-
-    </tr>
-    </table>
-    
-  </mat-card-content>
-</mat-card>
+<app-table-orders></app-table-orders>
 
 <button class="add-user-btn" mat-fab color="primary" matTooltip="Add order" matTooltipPosition="above"
 matTooltipHideDelay="1000"

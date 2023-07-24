@@ -46,7 +46,7 @@ export class TableProductsDataSource extends DataSource<TableProductsItem> {
       const items = products.map((product: Product) => ({
         productName: product.productName,
         productIsActive: product.productIsActive,
-        productPrice: product.productPrice,
+        productPrice: (product.productPrice).toFixed(2),
         orders: product.orders,
       }));
 

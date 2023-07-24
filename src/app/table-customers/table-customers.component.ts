@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { TableCustomersDataSource, TableCustomersItem } from './table-customers-datasource';
 import { DataService } from '../services/data.service';
 
@@ -25,7 +25,12 @@ export class TableCustomersComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+
+    const sortState: Sort = {active: 'createDate', direction: 'desc'}
+    this.sort.active = sortState.active;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+    this.sort.direction = sortState.direction;
+    this.sort.sortChange.emit(sortState);
   }
 }

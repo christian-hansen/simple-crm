@@ -9,45 +9,9 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent {
-  allOrders: any = [];
-  allUsers: any = [];
-  allProducts: any = [];
 
-  constructor(public dialog: MatDialog, private dataservice: DataService) {
-    this.loadAllOrders();
-    this.loadAllProducts();
-    this.loadAllUsers();
-  }
+  constructor(public dialog: MatDialog, private dataservice: DataService) {}
 
-  loadAllOrders() {
-    this.dataservice.loadOrders().subscribe((orders) => {
-      this.allOrders = orders;
-      console.log("Retrieved orders", this.allOrders);
-      
-    });
-  }
-
-  loadAllUsers() {
-    this.dataservice.loadUsers().subscribe((users) => {
-      this.allUsers = users;
-      console.log("Retrieved users", this.allUsers)
-    });
-  }
-
-  loadAllProducts() {
-    this.dataservice.loadProducts().subscribe((products) => {
-      this.allProducts = products;
-      console.log("Retrieved products", this.allProducts)
-    });
-  }
-
-  getUserById(customIdName: string) {
-    return this.allUsers.find((user: any) => user.customIdName === customIdName);
-  }
-  
-  getProductById(customIdName: string) {
-    return this.allProducts.find((product: any) => product.customIdName === customIdName);
-  }
   openDialog() {
     this.dialog.open(DialogAddOrderComponent);
   }

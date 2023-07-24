@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { arrayUnion, collection, doc, setDoc, updateDoc } from 'firebase/firestore';
 import { Order } from 'src/models/order.class';
@@ -14,7 +15,9 @@ export class DialogAddOrderComponent {
   order: Order = new Order();
   customerId: string = "";
   productId: string = "";
-
+year2020: number = 1577833200000;
+minDate: Date = new Date(this.year2020);
+maxDate: Date = new Date();
   createDate: Date = new Date();
   firestore: Firestore = inject(Firestore);
   loading: boolean = false;
@@ -72,6 +75,10 @@ orders: arrayUnion(ordersDocRef.id)
 
       this.loading = false;
       this.dialogRef.close();
+  }
+
+  onDateChange(event: any) {
+    this.createDate = new Date(event);
   }
   
   }

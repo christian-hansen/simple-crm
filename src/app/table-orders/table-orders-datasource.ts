@@ -52,11 +52,11 @@ export class TableOrdersDataSource extends DataSource<TableOrdersItem> {
     this.dataservice.loadOrders().subscribe(orders => {
       const items = orders.map((order: Order) => ({
         amount: order.amount,
-        revenue: order.amount * 1000,
+        revenue: (order.amount * this.productByPriceAndName(order.productId)).toFixed(2),
         createDate: order.createDate,
-        customerId: order.customerId,
-        productId: order.productId,
-        productPrice: 1000
+        customerId: this.customerByIdAndName(order.customerId),
+        productId: this.productByIdAndName(order.productId),
+        productPrice: this.productByPriceAndName(order.productId)
       }));
 console.log(items);
 
@@ -87,14 +87,37 @@ console.log(items);
           return this.allProducts.find((product: any) => product.customIdName === customIdName);
         }
 
-        productByIdAndPrice(customIdName: string) {
+        customerByIdAndName(customIdName: string) {
+          const customer = this.allUsers.find((customer: any) => customer.customIdName === customIdName);
+
+          if (customer) {
+            let customerName = customer.firstName + " " + customer.lastName + " (" + customer.email + ")";
+            return customerName
+            ;
+          } else {
+            return null; // or throw an error, depending on what you need.
+          }
+        }
+
+        productByIdAndName(customIdName: string) {
           const product = this.allProducts.find((product: any) => product.customIdName === customIdName);
 
           if (product) {
-            return {
+            let productName = product.productName;
+            return productName
+            ;
+          } else {
+            return null; // or throw an error, depending on what you need.
+          }
+        }
 
-              productPrice: product.productPrice,
-            };
+        productByPriceAndName(customIdName: string) {
+          const product = this.allProducts.find((product: any) => product.customIdName === customIdName);
+
+          if (product) {
+            let productPrice = product.productPrice;
+            return productPrice
+            ;
           } else {
             return null; // or throw an error, depending on what you need.
           }

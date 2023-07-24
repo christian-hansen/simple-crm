@@ -3,7 +3,7 @@
     <!-- Create Date Column -->
     <ng-container matColumnDef="createDate">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</th>
-      <td mat-cell *matCellDef="let row">{{row.createDate | date: "shortDate"}}</td>
+      <td mat-cell *matCellDef="let row">{{row.createDate | date: "longDate"}}</td>
     </ng-container>
 
         <!-- customerId Column -->
@@ -27,13 +27,13 @@
         <!-- Product Price Column -->
         <ng-container matColumnDef="productPrice">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Product price</th>
-          <td mat-cell *matCellDef="let row">{{row.productPrice}}</td>
+          <td mat-cell *matCellDef="let row">{{row.productPrice}} €</td>
         </ng-container>
 
         <!-- Revenue Column -->
         <ng-container matColumnDef="revenue">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Order net value</th>
-          <td mat-cell *matCellDef="let row">{{row.revenue}}</td>
+          <td mat-cell *matCellDef="let row">{{row.revenue}} €</td>
         </ng-container>
 
 
