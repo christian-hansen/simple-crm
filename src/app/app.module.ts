@@ -47,6 +47,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { TableOrdersComponent } from './table-orders/table-orders.component';
 import { TableCustomersComponent } from './table-customers/table-customers.component';
+import { TableUserDetailOrdersComponent } from './table-user-detail-orders/table-user-detail-orders.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { TableCustomersComponent } from './table-customers/table-customers.compo
     DialogAddOrderComponent,
     TableProductsComponent,
     TableOrdersComponent,
-    TableCustomersComponent
+    TableCustomersComponent,
+    TableUserDetailOrdersComponent
   ],
   imports: [
     BrowserModule,

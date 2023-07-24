@@ -19,12 +19,6 @@ export interface TableOrdersItem {
   productPrice: number;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: TableOrdersItem[] = [
-  // {amount: 1, createDate: 11, customerId: 'abdss', productId: "string"},
-
-];
-
 /**
  * Data source for the TableOrders view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data

@@ -34,14 +34,8 @@
         {{ user.street }} <br>
         {{ user.zipCode }}  {{ user.city }} <br>
         {{ user.country }}
+        <br>Orders: {{ user.orders }}
     </mat-card-content>
 </mat-card>
 
-<mat-card class="mt-32">
-  <mat-card-header>
-      <mat-card-title>Orders</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-      {{ user.orders }}
-  </mat-card-content>
-</mat-card>
+<app-table-user-detail-orders></app-table-user-detail-orders>
