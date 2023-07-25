@@ -48,6 +48,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { TableOrdersComponent } from './table-orders/table-orders.component';
 import { TableCustomersComponent } from './table-customers/table-customers.component';
 import { TableUserDetailOrdersComponent } from './table-user-detail-orders/table-user-detail-orders.component';
+import { ChartUsersOverTimeComponent } from './chart-users-over-time/chart-users-over-time.component';
+import { ChartOrdersOvertimeComponent } from './chart-orders-overtime/chart-orders-overtime.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { TableUserDetailOrdersComponent } from './table-user-detail-orders/table
     TableProductsComponent,
     TableOrdersComponent,
     TableCustomersComponent,
-    TableUserDetailOrdersComponent
+    TableUserDetailOrdersComponent,
+    ChartUsersOverTimeComponent,
+    ChartOrdersOvertimeComponent
   ],
   imports: [
     BrowserModule,
