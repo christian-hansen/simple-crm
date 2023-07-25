@@ -1,13 +1,13 @@
 <mat-card class="flex-center width25 height25 gap2 p16">
     <mat-card-header>
-        <mat-card-title>Customers</mat-card-title>
+        <mat-card-title>Last 24 hours</mat-card-title>
     </mat-card-header>
   <mat-card-content class="flex flex-col gap2">
-    <div class="text-2x">{{ totalUsers }}</div>
+    <div class="text-2x">{{ ordersLastDay.length }}</div>
 
   </mat-card-content>
   <mat-card-footer class="flex gap pb-16">
-    <div>XX%</div>
-    <div>Since Yesterday</div>
+    <div>{{differenceToPrevDay}}%</div>
+    <div>to previous day</div>
   </mat-card-footer>
 </mat-card>

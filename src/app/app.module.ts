@@ -50,6 +50,12 @@ import { TableCustomersComponent } from './table-customers/table-customers.compo
 import { TableUserDetailOrdersComponent } from './table-user-detail-orders/table-user-detail-orders.component';
 import { ChartUsersOverTimeComponent } from './chart-users-over-time/chart-users-over-time.component';
 import { ChartOrdersOvertimeComponent } from './chart-orders-overtime/chart-orders-overtime.component';
+import { CardOrdersLastWeekComponent } from './card-orders-last-week/card-orders-last-week.component';
+import { DashboardSalesDataComponent } from './dashboard-sales-data/dashboard-sales-data.component';
+import { CardOrdersTodayComponent } from './card-orders-today/card-orders-today.component';
+import { CardOrdersLastMonthComponent } from './card-orders-last-month/card-orders-last-month.component';
+import { CardOrdersTotalComponent } from './card-orders-total/card-orders-total.component';
+import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-total.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +81,13 @@ import { ChartOrdersOvertimeComponent } from './chart-orders-overtime/chart-orde
     TableCustomersComponent,
     TableUserDetailOrdersComponent,
     ChartUsersOverTimeComponent,
-    ChartOrdersOvertimeComponent
+    ChartOrdersOvertimeComponent,
+    CardOrdersLastWeekComponent,
+    DashboardSalesDataComponent,
+    CardOrdersTodayComponent,
+    CardOrdersLastMonthComponent,
+    CardOrdersTotalComponent,
+    CardRevenueTotalComponent
   ],
   imports: [
     BrowserModule,
