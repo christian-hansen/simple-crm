@@ -53,7 +53,7 @@ export class CardRevenueTotalComponent {
         orders.forEach((orderData: any) => {
           let orderObj: any = {};
           orderObj['id'] = orderData['customIdName'];
-          orderObj['revenue'] = (+orderData.amount * (+this.getProductPrice(orderData['productId']))).toFixed(2);
+          orderObj['revenue'] = (+orderData.amount * (+this.getProductPrice(orderData['productId']))).toFixed(0);
         
           this.allorders.push(orderObj['revenue']);
         });

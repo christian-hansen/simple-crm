@@ -94,6 +94,19 @@ app-dashboard-user-data, app-dashboard-sales-data {
   gap: 32px;
 }
 
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 10%
+}
+
+.cv {
+  width: 100%;
+  height: 100%;
+}
+
 app-user {
   width: 100%;
 }

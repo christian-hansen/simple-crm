@@ -56,6 +56,9 @@ import { CardOrdersTodayComponent } from './card-orders-today/card-orders-today.
 import { CardOrdersLastMonthComponent } from './card-orders-last-month/card-orders-last-month.component';
 import { CardOrdersTotalComponent } from './card-orders-total/card-orders-total.component';
 import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-total.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ImprintComponent } from './legal/imprint/imprint.component';
+import { PrivacyComponent } from './legal/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +90,9 @@ import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-tot
     CardOrdersTodayComponent,
     CardOrdersLastMonthComponent,
     CardOrdersTotalComponent,
-    CardRevenueTotalComponent
+    CardRevenueTotalComponent,
+    ImprintComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +118,7 @@ import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-tot
     provideFirestore(() => getFirestore()),
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
