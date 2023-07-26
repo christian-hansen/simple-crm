@@ -67,7 +67,17 @@ export class DateCheckService {
   }
 
   calculateChangeRate(input1: number, input2: number) {
-    let result = ((input1 / input2 * 100)-100).toFixed(1);
-    return result;
+    if(input1 === 0) {
+      return "-" + input2;
+    } else if (input2 === 0) {
+      return '+' + input1;
+    } else if (input1 === 0 && input2 === 0) {
+      return "0"
+    } else if (input1 === input2) {
+      return "+/- 0"
+    }
+    else {
+    let result = ((input1 / input2 * 100)-100).toFixed(1) + "%";
+    return result;}
 }
 }
