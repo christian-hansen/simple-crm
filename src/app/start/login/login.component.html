@@ -1,30 +1,35 @@
 <mat-card>
     <mat-card-header><h1>Add user</h1></mat-card-header>
     
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     
     <mat-card-content class="mt-32">
 
+        <button *ngIf="!loginWithEmailPassword" mat-button (click)="loginWithGoogle()">Login with Google</button>
+        <button *ngIf="!loginWithEmailPassword" mat-button (click)="loginWithEmailAndPassword()">Login with E-mail and Password</button>
  
+ <ng-container *ngIf="loginWithEmailPassword">
   <div>
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>E-mail address</mat-label>
-      <input type="email" matInput placeholder="" />
+      <input type="email" matInput [(ngModel)]="email" placeholder="" />
       <!-- <mat-hint>Please enter last name</mat-hint> -->
     </mat-form-field>
   </div>
   <div>
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>E-mail address</mat-label>
-      <input type="password" matInput placeholder="" />
+      <mat-label>Password</mat-label>
+      <input type="password" matInput [(ngModel)]="password" placeholder="" />
       <!-- <mat-hint>Please enter last name</mat-hint> -->
     </mat-form-field>
   </div>
  
 
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button cdkFocusInitial >Save</button>
-</div>
+
+  <button mat-button (click)="resetForm()">Cancel</button>
+  
+  <button mat-button cdkFocusInitial (click)="login()">Login</button>
+
+</ng-container>
 </mat-card-content>
 </mat-card>

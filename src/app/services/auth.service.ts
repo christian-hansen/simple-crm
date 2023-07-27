@@ -1,28 +1,64 @@
+// auth.service.ts
+
 import { Injectable } from '@angular/core';
-import { GoogleAuthProvider } from 'firebase/auth';
-import { AngularFireAuth } from '@angular/fire/compat/auth'
+import { Auth, User, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup, GoogleAuthProvider  } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  user$: Observable<User | null>;
+  private _isLoggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = this._isLoggedIn.asObservable();
 
-  constructor(
-    public afAuth: AngularFireAuth // Inject Firebase auth service
-  ) {}
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new GoogleAuthProvider());
-  }
-  // Auth logic to run auth providers
-  AuthLogin(provider: any) {
-    return this.afAuth
-      .signInWithPopup(provider)
-      .then((result) => {
-        console.log('You have been successfully logged in!');
-      })
-      .catch((error) => {
-        console.log(error);
+  constructor(private auth: Auth, private router:Router) {
+    this.user$ = new Observable(subscriber => {
+      const unsubscribe = onAuthStateChanged(auth, user => {
+        subscriber.next(user);
       });
+
+      return unsubscribe;
+    });
   }
+
+  async signInWithEmail(email: string, password: string): Promise<User | null> {
+    const credential = await signInWithEmailAndPassword(this.auth, email, password);
+    if (credential.user) {
+      setTimeout(() => {
+        this._isLoggedIn.next(true);
+        this.router.navigate(['/dashboard']);
+      }, 750);
+    }
+    return credential.user;
+  }
+
+  async signUpWithEmail(email: string, password: string): Promise<User | null> {
+    const credential = await createUserWithEmailAndPassword(this.auth, email, password);
+    return credential.user;
+  }
+
+  async signOut(): Promise<void> {
+    this._isLoggedIn.next(false);
+    
+    setTimeout(() => {
+      console. clear() ;
+      this.router.navigate(['']);
+    }, 750);
+    return signOut(this.auth);
+  }
+
+  async signInWithGoogle(): Promise<User | null> {
+    const provider = new GoogleAuthProvider();
+    const credential = await signInWithPopup(this.auth, provider);
+    if (credential.user) {
+      setTimeout(() => {
+        this._isLoggedIn.next(true);
+        this.router.navigate(['/dashboard']);
+      }, 750);
+    }
+    return credential.user;
+  }
+  
 }

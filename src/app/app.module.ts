@@ -24,9 +24,7 @@ import { UserComponent } from './user/user.component';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
+
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
@@ -56,10 +54,13 @@ import { CardOrdersTodayComponent } from './card-orders-today/card-orders-today.
 import { CardOrdersLastMonthComponent } from './card-orders-last-month/card-orders-last-month.component';
 import { CardOrdersTotalComponent } from './card-orders-total/card-orders-total.component';
 import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-total.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ImprintComponent } from './legal/imprint/imprint.component';
 import { PrivacyComponent } from './legal/privacy/privacy.component';
 import { LoginComponent } from './start/login/login.component';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -116,8 +117,8 @@ import { LoginComponent } from './start/login/login.component';
     MatSelectModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,

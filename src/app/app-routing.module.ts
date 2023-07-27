@@ -3,11 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ImprintComponent } from './legal/imprint/imprint.component';
 import { PrivacyComponent } from './legal/privacy/privacy.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './start/login/login.component';
-import { TableProductsComponent } from './table-products/table-products.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
 

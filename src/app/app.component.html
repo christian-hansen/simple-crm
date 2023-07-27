@@ -1,7 +1,7 @@
-<ng-container *ngIf="showFiller">
+<ng-container *ngIf="isLoggedIn">
 <mat-drawer-container class="mat-drawer-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
-    <div class="logo-container" routerLink="" routerLinkActive="router-link-active"><img src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon">account_circle</mat-icon></div>
+    <div class="logo-container" ><img routerLink="/dashboard" routerLinkActive="router-link-active" src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon">account_circle</mat-icon></div>
     <div class="flex-center flex-col gap2 mt-32">
       <img class="profile-image" src="/assets/img/profile1x.png" alt="">
       <div class="flex-col gap">
@@ -16,6 +16,7 @@
       <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>people</mat-icon>Customers</li>
       <li routerLink="/orders" routerLinkActive="router-link-active" ><mat-icon>local_shipping</mat-icon>Orders</li>
       <li routerLink="/products" routerLinkActive="router-link-active" ><mat-icon>home_repair_service</mat-icon>Products</li>
+
     </ul>
 
   </div>
@@ -25,6 +26,7 @@
         <li routerLink="/imprint" routerLinkActive="router-link-active" ><mat-icon>info</mat-icon>Imprint</li>
         <li routerLink="/privacy" routerLinkActive="router-link-active" ><mat-icon>info</mat-icon>Privacy Policy</li>
         <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>help</mat-icon>Help TBD</li>
+        <li (click)="authService.signOut()" ><mat-icon>home_repair_service</mat-icon>SignOut</li>
       </ul>
       <div class="flex-center logo-bottom"><img class="profile-image" src="/assets/img/logo.png" alt=""></div>
     </div>
@@ -44,6 +46,6 @@
   </div>
 </mat-drawer-container>
 </ng-container>
-<ng-container *ngIf="!showFiller">
+<ng-container *ngIf="!isLoggedIn">
 <app-login></app-login>
 </ng-container>

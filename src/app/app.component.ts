@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,23 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'simple-crm';
-  showFiller = false;
+  isLoggedIn: boolean = false;
+  subscription: Subscription = new Subscription();
+
 // 
-  // constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+   
+  }
+
+  ngOnInit() {
+    this.subscription = this.authService.isLoggedIn$.subscribe(
+      isLoggedIn => this.isLoggedIn = isLoggedIn
+      
+      );
+      console.log(this.isLoggedIn);
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
