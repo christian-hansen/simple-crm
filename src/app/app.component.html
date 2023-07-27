@@ -1,3 +1,4 @@
+<ng-container *ngIf="showFiller">
 <mat-drawer-container class="mat-drawer-container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" [opened]="true">
     <div class="logo-container" routerLink="" routerLinkActive="router-link-active"><img src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon">account_circle</mat-icon></div>
@@ -42,3 +43,7 @@
     </div>
   </div>
 </mat-drawer-container>
+</ng-container>
+<ng-container *ngIf="!showFiller">
+<app-login></app-login>
+</ng-container>

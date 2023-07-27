@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-header><h1>Add user</h1></mat-card-header>
+    
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    
+    <mat-card-content class="mt-32">
+
+ 
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>E-mail address</mat-label>
+      <input type="email" matInput placeholder="" />
+      <!-- <mat-hint>Please enter last name</mat-hint> -->
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>E-mail address</mat-label>
+      <input type="password" matInput placeholder="" />
+      <!-- <mat-hint>Please enter last name</mat-hint> -->
+    </mat-form-field>
+  </div>
+ 
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial >Save</button>
+</div>
+</mat-card-content>
+</mat-card>

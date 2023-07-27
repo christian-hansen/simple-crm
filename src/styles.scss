@@ -110,3 +110,12 @@ app-dashboard-user-data, app-dashboard-sales-data {
 app-user {
   width: 100%;
 }
+
+app-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}

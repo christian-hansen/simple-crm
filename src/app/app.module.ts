@@ -59,6 +59,7 @@ import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-tot
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ImprintComponent } from './legal/imprint/imprint.component';
 import { PrivacyComponent } from './legal/privacy/privacy.component';
+import { LoginComponent } from './start/login/login.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { PrivacyComponent } from './legal/privacy/privacy.component';
     CardOrdersTotalComponent,
     CardRevenueTotalComponent,
     ImprintComponent,
-    PrivacyComponent
+    PrivacyComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
