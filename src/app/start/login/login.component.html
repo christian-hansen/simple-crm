@@ -1,13 +1,24 @@
+<img src="/assets/img/logo.png">
+
 <mat-card>
-    <mat-card-header><h1>Add user</h1></mat-card-header>
+    <mat-card-header><h1>Choose login</h1></mat-card-header>
     
     <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     
-    <mat-card-content class="mt-32">
-
-        <button *ngIf="!loginWithEmailPassword" mat-button (click)="loginWithGoogle()">Login with Google</button>
-        <button *ngIf="!loginWithEmailPassword" mat-button (click)="loginWithEmailAndPassword()">Login with E-mail and Password</button>
- 
+    <mat-card-content>
+        <div *ngIf="!loginWithEmailPassword" class="login-btn" (click)="loginWithGoogle()">
+            <div class="icon-wrapper">
+              <img class="icon" src="/assets/img/google.png"/>
+            </div>
+            <p class="btn-text"><b>Continue in with Google</b></p>
+          </div>
+          <div *ngIf="!loginWithEmailPassword" class="login-btn" (click)="loginWithEmailAndPassword()">
+            <div class="icon-wrapper">
+              <img class="icon" src="/assets/img/mail.png"/>
+            </div>
+            <p class="btn-text"><b>Continue with e-mail and password</b></p>
+          </div>
+       
  <ng-container *ngIf="loginWithEmailPassword">
   <div>
     <mat-form-field appearance="outline" class="full-width">
@@ -25,11 +36,13 @@
   </div>
  
 
-
-  <button mat-button (click)="resetForm()">Cancel</button>
+<mat-card-actions>  <button mat-button (click)="resetForm()">Back</button>
   
-  <button mat-button cdkFocusInitial (click)="login()">Login</button>
+    <button mat-button cdkFocusInitial (click)="login()">Login</button></mat-card-actions>
 
+  
+  <mat-card-actions><button mat-button (click)="resetForm()">Forgot password</button></mat-card-actions>
+  
 </ng-container>
 </mat-card-content>
 </mat-card>
