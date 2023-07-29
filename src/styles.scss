@@ -26,6 +26,10 @@ h1 {
   margin-right: 16px;
 }
 
+.mt-16 {
+  margin-top: 16px;
+}
+
 .mt-32 {
   margin-top: 32px;
 }
@@ -43,8 +47,10 @@ h1 {
 }
 
 .width25 {
-  width: 25vw;
-  max-width: 200px;
+  width: auto;
+  max-width: auto;
+
+
 }
 
 .width40 {
@@ -93,6 +99,7 @@ app-dashboard {
 
 app-dashboard-user-data, app-dashboard-sales-data {
   display: flex;
+  flex-direction: column;
   justify-content: center ;
   width: 100%;
   gap: 32px;
@@ -126,6 +133,9 @@ app-login {
 
   mat-card {min-width: 320px;}
   
+  .logo {
+    width: 200px;
+  }
 }
 
 .login-btn {
@@ -169,5 +179,12 @@ app-login {
   &:active {
     background: lightgray;
     color: black;
+  }
+}
+
+@media (min-width: 1000px) {
+  .width25 {
+    width: 25vw;
+    max-width: 200px;
   }
 }
