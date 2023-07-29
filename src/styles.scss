@@ -92,7 +92,7 @@ h1 {
 app-dashboard {
   display: flex;
   flex-direction: column;
-  justify-content: center ;
+  justify-content: center;
   width: 100%;
   gap: 32px;
 }
@@ -101,12 +101,14 @@ app-dashboard-user-data, app-dashboard-sales-data {
   display: flex;
   flex-direction: column;
   justify-content: center ;
+  align-items: center;
   width: 100%;
   gap: 32px;
 }
 
 .canvas-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
