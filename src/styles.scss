@@ -99,7 +99,7 @@ app-dashboard {
 
 app-dashboard-user-data, app-dashboard-sales-data {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center ;
   align-items: center;
   width: 100%;
@@ -111,13 +111,20 @@ app-dashboard-user-data, app-dashboard-sales-data {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 90%;
-  gap: 10%
+  width: 99%;
+  gap: 1%;
 }
 
 .cv {
   width: 100%;
   height: 100%;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 app-user {
@@ -184,9 +191,18 @@ app-login {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   .width25 {
     width: 25vw;
     max-width: 200px;
+  }
+
+  .canvas-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .cv {
+    width: 48%;
   }
 }

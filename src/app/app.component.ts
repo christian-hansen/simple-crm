@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
 
@@ -11,10 +12,14 @@ export class AppComponent {
   title = 'simple-crm';
   isLoggedIn: boolean = false;
   subscription: Subscription = new Subscription();
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
 
 // 
-  constructor(public authService: AuthService) {
-   
+  constructor(public authService: AuthService, private changeDetectorRef: ChangeDetectorRef, private media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 900px)');
+    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit() {
@@ -26,6 +31,7 @@ export class AppComponent {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe(); 
+    this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 }
