@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExplanationComponent } from './dialog-explanation/dialog-explanation.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,7 @@ export class AppComponent {
   private _mobileQueryListener: () => void;
 
 // 
-  constructor(public authService: AuthService, private changeDetectorRef: ChangeDetectorRef, private media: MediaMatcher) {
+  constructor(public authService: AuthService, private changeDetectorRef: ChangeDetectorRef, private media: MediaMatcher, private dialog: MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 900px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -33,5 +35,9 @@ export class AppComponent {
   ngOnDestroy() {
     this.subscription.unsubscribe(); 
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  openHelp() {
+    this.dialog.open(DialogExplanationComponent)
   }
 }

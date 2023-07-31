@@ -61,6 +61,7 @@ import { LoginComponent } from './start/login/login.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { DialogExplanationComponent } from './dialog-explanation/dialog-explanation.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     CardRevenueTotalComponent,
     ImprintComponent,
     PrivacyComponent,
-    LoginComponent
+    LoginComponent,
+    DialogExplanationComponent
   ],
   imports: [
     BrowserModule,

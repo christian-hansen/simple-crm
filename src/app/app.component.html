@@ -1,9 +1,13 @@
 <ng-container *ngIf="isLoggedIn">
 <mat-drawer-container class="mat-drawer-container" autosize>
   <mat-drawer #drawer class="sidenav" [mode]="mobileQuery.matches ? 'push' : 'side'" [opened]="mobileQuery.matches ? 'false' : 'true'">
-    <div class="logo-container" ><img routerLink="/dashboard" routerLinkActive="router-link-active" src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon">account_circle</mat-icon></div>
+    <div class="logo-container" ><img routerLink="/dashboard" routerLinkActive="router-link-active" src="/assets/img/logo2.png" alt=""> <mat-icon class="menu-icon" [matMenuTriggerFor]="beforeMenu">account_circle</mat-icon>
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="authService.signOut()"><mat-icon>logout</mat-icon>Sign Out</button>
+      </mat-menu></div>
     <div class="flex-center flex-col gap2 mt-32">
       <img class="profile-image" src="/assets/img/profile1x.png" alt="">
+      
       <div class="flex-col gap">
         <div><strong>Christian Hansen</strong></div>
         <div>christian@example.com</div>
@@ -25,9 +29,8 @@
       <ul class="pb-16">
         <li routerLink="/imprint" routerLinkActive="router-link-active" ><mat-icon>info</mat-icon>Imprint</li>
         <li routerLink="/privacy" routerLinkActive="router-link-active" ><mat-icon>info</mat-icon>Privacy Policy</li>
-        <li routerLink="/user" routerLinkActive="router-link-active" ><mat-icon>help</mat-icon>Help TBD</li>
-        <li (click)="authService.signOut()" ><mat-icon>home_repair_service</mat-icon>SignOut</li>
-      </ul>
+        <li (click)="openHelp()"><mat-icon>help</mat-icon>Help</li>
+        </ul>
       <div class="flex-center logo-bottom"><img class="profile-image" src="/assets/img/logo.png" alt=""></div>
     </div>
     
@@ -44,7 +47,12 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+
+
 </mat-drawer-container>
+
+
+
 </ng-container>
 <ng-container *ngIf="!isLoggedIn">
 <app-login></app-login>
