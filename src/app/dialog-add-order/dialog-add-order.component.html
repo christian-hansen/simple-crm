@@ -2,7 +2,7 @@
 <h1 mat-dialog-title>Add Order</h1>
 <div mat-dialog-content>
   <div>
-    <mat-form-field appearance="outline" class="mr-16">
+    <mat-form-field appearance="outline" class="mr-16 sm-input">
             <mat-label>Select Product</mat-label>
             <mat-select required [(ngModel)]="productId" name="value">
               <mat-option *ngFor="let product of allProducts" value="{{product.customIdName}}">{{product.productName}}</mat-option>
@@ -10,7 +10,7 @@
             <mat-error>Please select a product</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
+    <mat-form-field appearance="outline" class="sm-input">
       <mat-label>Enter Amount</mat-label>
       <input type="number" required [disabled]="loading" [(ngModel)]="order.amount" matInput placeholder="" min="1" value="0"/>
       <mat-error>Amount must be at least 1</mat-error>

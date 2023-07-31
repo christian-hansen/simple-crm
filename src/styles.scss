@@ -191,6 +191,10 @@ app-login {
   }
 }
 
+.sm-input {
+  width: 100%;
+}
+
 @media (min-width: 1200px) {
   .width25 {
     width: 25vw;
@@ -204,5 +208,9 @@ app-login {
   
   .cv {
     width: 48%;
+  }
+
+  .sm-input {
+    width: auto;
   }
 }
