@@ -13,6 +13,7 @@ import { DialogExplanationComponent } from './dialog-explanation/dialog-explanat
 export class AppComponent {
   title = 'simple-crm';
   isLoggedIn: boolean = false;
+  currentUser?: any;
   subscription: Subscription = new Subscription();
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -29,7 +30,14 @@ export class AppComponent {
       isLoggedIn => this.isLoggedIn = isLoggedIn
       
       );
-      console.log(this.isLoggedIn);
+
+      this.subscription.add(
+        this.authService.user$.subscribe(
+          user => this.currentUser = user
+        )
+      );
+
+      console.log(this.isLoggedIn, this.currentUser);
   }
 
   ngOnDestroy() {

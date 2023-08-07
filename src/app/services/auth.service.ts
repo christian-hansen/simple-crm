@@ -14,12 +14,15 @@ export class AuthService {
   isLoggedIn$ = this._isLoggedIn.asObservable();
 
   constructor(private auth: Auth, private router:Router) {
-    this._isLoggedIn.next(true);
     this.user$ = new Observable(subscriber => {
       const unsubscribe = onAuthStateChanged(auth, user => {
         subscriber.next(user);
+        if (user) {
+          this._isLoggedIn.next(true);
+        } else {
+          this._isLoggedIn.next(false);
+        }
       });
-
       return unsubscribe;
     });
   }
