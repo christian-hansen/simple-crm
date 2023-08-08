@@ -7,6 +7,22 @@ export class DateCheckService {
 
   constructor() { }
 
+  checkPreviousNYears(date: number, previousYears: number) {
+    const currentDate = new Date(Date.now());
+    const year = currentDate.getFullYear();
+  
+    const dateToCheck = new Date(date);
+    const yearToCheck = dateToCheck.getFullYear();
+  
+    let yearDiff = year - yearToCheck;
+    if (yearDiff === previousYears) 
+    {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   checkPreviousNMonth(date: number, previousMonths: number) {
     const currentDate = new Date(Date.now());
     const month = currentDate.getMonth();
@@ -19,24 +35,10 @@ export class DateCheckService {
     let monthDiff = month - monthToCheck;
     let yearDiff = year - yearToCheck;
   
-    // console.log("Today", currentDate);
-    // console.log("Month", month);
-    // console.log("Year", year);
-  
-    // console.log("dateToCheck", dateToCheck);
-    // console.log("monthToCheck", monthToCheck);
-    // console.log("yearToCheck", yearToCheck);
-  
-    // console.log("monthDiff", monthDiff);
-    // console.log("yearDiff", yearDiff);
-  
-    
       if (yearDiff === 0 && monthDiff === previousMonths || yearDiff === 1 && monthDiff === (-12 + previousMonths) ) 
       {
-        // console.log(true)
         return true;
       } else {
-        // console.log(false);
         return false;
       }
   }
@@ -51,17 +53,11 @@ export class DateCheckService {
     
     const periodToCheck = currentDate.valueOf() - dateToCheck.valueOf();
     
-    // console.log(dayInMs);
-    // console.log("timePeriodInMs", timePeriodInMs);
-    // console.log("periodToCheck", periodToCheck);
-    // console.log("previousTimePeriodInMs", previousTimePeriodInMs);
     
       if (timePeriodInMs >= periodToCheck && periodToCheck <= previousTimePeriodInMs) 
       {
-        // console.log(true)
         return true;
       } else {
-        // console.log(false);
         return false;
       }
   }
