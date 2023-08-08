@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 $white: #fff;
 $google-blue: #4285f4;
-$button-active-blue: #1669F2;
+$button-active-blue: #1669f2;
 
 html,
 body {
@@ -11,15 +11,23 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Inter, sans-serif !important;
+  
 }
 
 h1 {
   margin: 0;
 }
 
+.text-revenue {
+  padding: 16px 0px;
+  font-size: 2.5rem;
+}
+
 .text-2x {
-  font-size: 2rem;
+  padding: 16px 0px;
+  font-size: 4rem;
 }
 
 .mr-16 {
@@ -46,20 +54,8 @@ h1 {
   width: 100%;
 }
 
-.width25 {
-  width: auto;
-  max-width: auto;
-
-
-}
-
 .width40 {
   width: 40%;
-}
-
-.height25 {
-  height: 25vh;
-  max-height: 150px;
 }
 
 .flex {
@@ -97,13 +93,58 @@ app-dashboard {
   gap: 32px;
 }
 
-app-dashboard-user-data, app-dashboard-sales-data {
+app-dashboard-user-data,
+app-dashboard-sales-data {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center ;
+  justify-content: center;
   align-items: center;
   width: 100%;
   gap: 32px;
+
+  .card {
+    flex-grow: 1;
+
+    mat-card {
+      border-radius: 10px;
+      min-width: 230px;
+      font-weight: 700;
+      background-color: #fefefe;
+
+      mat-card-footer,
+      mat-card-title {
+        font-weight: 700;
+      }
+      mat-card-content{
+            color: orange;
+          }
+
+    }
+
+    // &:first-child {
+    //   mat-card-content{
+    //     color: #2ec610;
+    //   }
+    // }
+
+    // &:nth-child(2) {
+    //   mat-card-content{
+    //     color: red;
+    //   }
+    // }
+
+    // &:nth-child(3) {
+    //   mat-card-content{
+    //     color: blue;
+    //   }
+    // }
+
+    // &:nth-child(4) {
+    //   mat-card-content{
+    //     color: orange;
+    //   }
+    // }
+  }
 }
 
 .canvas-container {
@@ -112,7 +153,7 @@ app-dashboard-user-data, app-dashboard-sales-data {
   justify-content: center;
   align-items: center;
   width: 99%;
-  gap: 1%;
+  gap: 10%;
 }
 
 .cv {
@@ -125,6 +166,13 @@ app-dashboard-user-data, app-dashboard-sales-data {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+    h2 {
+      padding: 16px 0px;
+      font-size: 2rem;
+      font-weight: 700;
+  }
+
 }
 
 app-user {
@@ -140,8 +188,10 @@ app-login {
   height: 100vh;
   padding: 16px;
 
-  mat-card {min-width: 320px;}
-  
+  mat-card {
+    min-width: 320px;
+  }
+
   .logo {
     width: 200px;
   }
@@ -151,10 +201,10 @@ app-login {
   width: 100%;
   height: 42px;
   border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
   cursor: pointer;
   margin-top: 16px;
- 
+
   .icon-wrapper {
     position: absolute;
     margin-top: 1px;
@@ -196,18 +246,13 @@ app-login {
 }
 
 @media (min-width: 1200px) {
-  .width25 {
-    width: 25vw;
-    max-width: 200px;
-  }
-
   .canvas-container {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .cv {
-    width: 48%;
+    width: 45%;
   }
 
   .sm-input {
