@@ -11,8 +11,7 @@ body {
 }
 body {
   margin: 0;
-  // font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-family: Inter, sans-serif !important;
+  font-family: Inter, "Helvetica Neue", sans-serif;
   
 }
 
@@ -226,7 +225,6 @@ app-login {
     margin: 11px 11px 0 48px;
     font-size: 14px;
     letter-spacing: 0.2px;
-    font-family: "Roboto";
   }
   &:hover {
     box-shadow: 0 0 6px lightgray;
