@@ -1,6 +1,6 @@
 <mat-form-field class="search">
 <mat-label>Filter</mat-label>
-<input matInput placeholder="Search columns" #search >
+<input matInput placeholder="Search by name, email or country" #search >
 </mat-form-field>
 <div class="mat-elevation-z8">
   <mat-table class="full-width-table" matSort aria-label="Elements">
@@ -25,7 +25,7 @@
     <!-- Last Name Column -->
     <ng-container matColumnDef="birthDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Birth Date</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.birthDate | date: "shortDate"}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.birthDate | date: "mediumDate"}}</mat-cell>
     </ng-container>
 
     <!-- Last Name Column -->
@@ -37,7 +37,7 @@
     <!-- Last Name Column -->
     <ng-container matColumnDef="createDate">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Create Date</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{row.createDate | date: "longDate" : "de"}}</mat-cell>
+      <mat-cell *matCellDef="let row">{{row.createDate | date: "longDate"}}</mat-cell>
     </ng-container>
 
     <mat-header-row class="transparent-header-hover" *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -47,7 +47,7 @@
   <mat-paginator #paginator
       [length]="dataSource?.data?.length"
       [pageIndex]="0"
-      [pageSize]="5"
+      [pageSize]="10"
       [pageSizeOptions]="[5, 10, 20, 50]"
       aria-label="Select page">
   </mat-paginator>

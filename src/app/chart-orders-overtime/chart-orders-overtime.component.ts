@@ -73,7 +73,7 @@ createChart() {
       ]
     },
     options: {
-      aspectRatio:1.5,
+      aspectRatio:1,
       scales: {
         x: {
           beginAtZero: true,

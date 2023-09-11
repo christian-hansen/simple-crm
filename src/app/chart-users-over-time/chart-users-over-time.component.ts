@@ -65,7 +65,7 @@ export class ChartUsersOverTimeComponent implements OnInit {
 
       options: {
         
-        aspectRatio: 1.5,
+        aspectRatio: 1.25,
         scales: {
           y: {
             beginAtZero: true,

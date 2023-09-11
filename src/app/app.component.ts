@@ -37,7 +37,7 @@ export class AppComponent {
         )
       );
 
-      console.log(this.isLoggedIn, this.currentUser);
+      console.log("is logged in?", this.isLoggedIn, "Current user", this.currentUser);
   }
 
   ngOnDestroy() {
