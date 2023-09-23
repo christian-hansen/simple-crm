@@ -1,0 +1,22 @@
+.full-width-table {
+  width: 100%;
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: rgb(0, 0, 123);
+    }
+  }
+}
+
+.add-user-btn {
+  position: absolute;
+  bottom: 64px;
+  right: 56px;
+}
+
+mat-header-cell {
+  font-weight: 700;
+}

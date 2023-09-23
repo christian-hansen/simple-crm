@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ImprintComponent } from './legal/imprint/imprint.component';
-import { PrivacyComponent } from './legal/privacy/privacy.component';
-import { OrdersComponent } from './orders/orders.component';
-import { ProductsComponent } from './products/products.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ImprintComponent } from './components/legal/imprint/imprint.component';
+import { PrivacyComponent } from './components/legal/privacy/privacy.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { ProductsComponent } from './components/products/products.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { UserComponent } from './components/user/user.component';
+
 import { LoginComponent } from './start/login/login.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { UserComponent } from './user/user.component';
+
 
 const routes: Routes = [
+
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'user', component: UserComponent },

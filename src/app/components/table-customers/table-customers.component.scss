@@ -1,0 +1,31 @@
+mat-header-cell {
+  font-weight: 700;
+}
+
+.full-width-table {
+  tr {
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  th {
+    color: rgba(0, 0, 0, 0.4);
+    cursor: auto;
+  }
+}
+
+.transparent-header-hover {
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.search {
+  width: calc(100% - 32px);
+  padding: 16px 16px 0px 16px;
+  border: none;
+  
+}

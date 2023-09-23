@@ -3,7 +3,8 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { AuthService } from './services/auth.service';
 import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogExplanationComponent } from './dialog-explanation/dialog-explanation.component';
+import { DialogExplanationComponent } from './components/dialog-explanation/dialog-explanation.component';
+
 
 @Component({
   selector: 'app-root',

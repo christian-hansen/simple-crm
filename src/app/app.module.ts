@@ -19,50 +19,54 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './user/user.component';
-import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { DialogEditUserDetailsComponent } from './dialog-edit-user-details/dialog-edit-user-details.component';
-import { CardUsersTotalComponent } from './card-users-total/card-users-total.component';
-import { ProductsComponent } from './products/products.component';
-import { CardUsersLastMonthComponent } from './card-users-last-month/card-users-last-month.component';
-import { CardUsersLastWeekComponent } from './card-users-last-week/card-users-last-week.component';
-import { DashboardUserDataComponent } from './dashboard-user-data/dashboard-user-data.component';
-import { CardUsersTodayComponent } from './card-users-today/card-users-today.component';
-import { DialogDeleteUserComponent } from './dialog-delete-user/dialog-delete-user.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { OrdersComponent } from './orders/orders.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { DialogAddOrderComponent } from './dialog-add-order/dialog-add-order.component';
-import { TableProductsComponent } from './table-products/table-products.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { TableOrdersComponent } from './table-orders/table-orders.component';
-import { TableCustomersComponent } from './table-customers/table-customers.component';
-import { TableUserDetailOrdersComponent } from './table-user-detail-orders/table-user-detail-orders.component';
-import { ChartUsersOverTimeComponent } from './chart-users-over-time/chart-users-over-time.component';
-import { ChartOrdersOvertimeComponent } from './chart-orders-overtime/chart-orders-overtime.component';
-import { CardOrdersLastWeekComponent } from './card-orders-last-week/card-orders-last-week.component';
-import { DashboardSalesDataComponent } from './dashboard-sales-data/dashboard-sales-data.component';
-import { CardOrdersTodayComponent } from './card-orders-today/card-orders-today.component';
-import { CardOrdersLastMonthComponent } from './card-orders-last-month/card-orders-last-month.component';
-import { CardOrdersTotalComponent } from './card-orders-total/card-orders-total.component';
-import { CardRevenueTotalComponent } from './card-revenue-total/card-revenue-total.component';
-import { ImprintComponent } from './legal/imprint/imprint.component';
-import { PrivacyComponent } from './legal/privacy/privacy.component';
+
+import { TableCustomersComponent } from './components/table-customers/table-customers.component';
+
+import { CardOrdersLastMonthComponent } from './components/card-orders-last-month/card-orders-last-month.component';
+
 import { LoginComponent } from './start/login/login.component';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { DialogExplanationComponent } from './dialog-explanation/dialog-explanation.component';
-import { CardUsersLastYearComponent } from './card-users-last-year/card-users-last-year.component';
+import { UserComponent } from './components/user/user.component';
+import { DialogAddUserComponent } from './components/dialog-add-user/dialog-add-user.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { DialogEditUserDetailsComponent } from './components/dialog-edit-user-details/dialog-edit-user-details.component';
+import { CardUsersTotalComponent } from './components/card-users-total/card-users-total.component';
+import { ProductsComponent } from './components/products/products.component';
+import { CardUsersLastMonthComponent } from './components/card-users-last-month/card-users-last-month.component';
+import { CardUsersLastWeekComponent } from './components/card-users-last-week/card-users-last-week.component';
+import { DashboardUserDataComponent } from './components/dashboard-user-data/dashboard-user-data.component';
+import { CardUsersTodayComponent } from './components/card-users-today/card-users-today.component';
+import { DialogDeleteUserComponent } from './components/dialog-delete-user/dialog-delete-user.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { DialogAddOrderComponent } from './components/dialog-add-order/dialog-add-order.component';
+import { TableProductsComponent } from './components/table-products/table-products.component';
+import { TableOrdersComponent } from './components/table-orders/table-orders.component';
+import { TableUserDetailOrdersComponent } from './components/table-user-detail-orders/table-user-detail-orders.component';
+import { ChartUsersOverTimeComponent } from './components/chart-users-over-time/chart-users-over-time.component';
+import { ChartOrdersOvertimeComponent } from './components/chart-orders-overtime/chart-orders-overtime.component';
+import { CardOrdersLastWeekComponent } from './components/card-orders-last-week/card-orders-last-week.component';
+import { DashboardSalesDataComponent } from './components/dashboard-sales-data/dashboard-sales-data.component';
+import { CardOrdersTodayComponent } from './components/card-orders-today/card-orders-today.component';
+import { CardOrdersTotalComponent } from './components/card-orders-total/card-orders-total.component';
+import { CardRevenueTotalComponent } from './components/card-revenue-total/card-revenue-total.component';
+import { ImprintComponent } from './components/legal/imprint/imprint.component';
+import { PrivacyComponent } from './components/legal/privacy/privacy.component';
+import { DialogExplanationComponent } from './components/dialog-explanation/dialog-explanation.component';
+import { CardUsersLastYearComponent } from './components/card-users-last-year/card-users-last-year.component';
+
 
 @NgModule({
   declarations: [
